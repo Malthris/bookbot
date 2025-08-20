@@ -17,3 +17,18 @@ def count_letters(full_book):
             letter_count[char] = 1
     
     return letter_count
+
+def sort_on(items):
+    return items["num"]
+
+def sorted_list(counted_letters):
+    list_of_letter = []
+
+    for letter in counted_letters:
+        list_of_letter.append({"char": letter, "num": counted_letters[letter]})
+        #print(letter)
+
+    list_of_letter.sort(reverse=True, key=sort_on)
+    #print(list_of_letter)
+
+    return list_of_letter
