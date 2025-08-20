@@ -1,3 +1,4 @@
+import sys
 from stats import string_to_words
 from stats import count_letters
 from stats import sorted_list
@@ -9,7 +10,10 @@ def get_book_text(path_to_file):
 
 
 def main():
-    book_text = get_book_text("books/frankenstein.txt")
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    book_text = get_book_text(sys.argv[1])
     number_of_words = string_to_words(book_text)
     
     number_per_letter = count_letters(book_text)
